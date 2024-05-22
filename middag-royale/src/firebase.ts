@@ -1,7 +1,7 @@
 // firebase.ts
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-
+//Va inte oskön, jag orkar inte göma mina api-nycklar tack och hej leverpastej
 const firebaseConfig = {
     apiKey: "AIzaSyDLwgqQPM71ZPj8K6_EMsKAXBSOWUdyEhA",
     authDomain: "middagroyale.firebaseapp.com",

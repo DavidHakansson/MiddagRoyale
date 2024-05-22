@@ -1,7 +1,7 @@
-// components/DinnerList.tsx
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../firebase";
+import { Card, Spacer } from "@nextui-org/react";
 
 interface DinnerRegistration {
   id: string;
@@ -30,14 +30,17 @@ const DinnerList: React.FC = () => {
   }, []);
 
   return (
-    <ul>
+    <div className="flex flex-col space-y-4">
+      <h2 className="text-2xl font-bold text-white">Anmälda vänner:</h2>
       {registrations.map((registration) => (
-        <li key={registration.id}>
-          <strong>{registration.name}</strong> {registration.attending ? "is attending" : "is not attending"}
-          <p>{registration.anecdote}</p>
-        </li>
+        <Card key={registration.id} className="bg-gray-900">
+          <h3 className="text-lg font-semibold text-white">{registration.name}</h3>
+          <p className="text-white">{registration.attending ? "kommer" : "kommer inte, varför anmälde du dig ens?"}</p>
+          <Spacer y={1} />
+          <p className="text-white">{registration.anecdote}</p>
+        </Card>
       ))}
-    </ul>
+    </div>
   );
 };
 

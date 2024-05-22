@@ -1,8 +1,14 @@
-import { useState } from "react";
-import { motion} from "framer-motion";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const ZippoTop: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleClick = () => {
+    const audio = new Audio('/Zippo.mp3'); 
+    audio.play();
+    setIsOpen(!isOpen);
+  }
 
   return (
     <motion.div
@@ -15,13 +21,12 @@ const ZippoTop: React.FC = () => {
         position: "relative",
         zIndex: 10,
         backgroundColor: "silver",
-        transformOrigin: "bottom right", // Set the transform origin to bottom right
+        transformOrigin: "bottom right", 
       }}
-      onClick={() => setIsOpen(!isOpen)}
+      onClick={handleClick}
       animate={{
         rotate: isOpen ? 0 : 90
       }}
-
     />
   );
 };
